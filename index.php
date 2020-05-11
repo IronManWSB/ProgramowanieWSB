@@ -11,7 +11,10 @@
 <body>
     <script src="js/jquery-331.min.js"></script>
     <script src="js/bootstrap-337.min.js"></script>
+<?php
+session_start();
 
+?>
     <div class id="top_menu">
         <div class="container">
             <div class="col-md-6 offer">
@@ -21,13 +24,29 @@
             <div class="col-md-6">
                 <ul class="menu">
                     <li>
-                        <a href="Customer_register.php">Register</a>
+                        <a href="Customer_register.php">Zarejestruj</a>
                     </li>
                     <li>
-                        <a href="chechout.php">My account</a>
+                        <a href="chechout.php">Moje konto</a>
                     </li>
                     <li>
-                        <a href="checkout.php">Login</a>
+                    <?php
+
+                    if(isset($_SESSION['czyZalogowany'])&&($_SESSION['czyZalogowany'])){
+                      
+                       $nazwaUzytkownika = $_SESSION['nazwaUzytkownika'];
+                       echo "Witaj ".$nazwaUzytkownika;
+
+                    }
+                    else{
+                        echo "<a href=\"login.php\">Zaloguj</a>";
+                        
+                    }
+
+                    
+                   
+                    ?>
+                        
                     </li>
                 </ul>
             </div>
