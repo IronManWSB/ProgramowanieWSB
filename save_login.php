@@ -23,7 +23,7 @@ if ($iloscWierszy>0){
     $nazwaUzytkownika = $wiersz['Email'];
     $NrKlienta = $wiersz['NrKlienta'];
     $_SESSION['nazwaUzytkownika'] = $nazwaUzytkownika;
-    $_SESSION['nrKlienta'] = $nrKlienta;
+    $_SESSION['nrKlienta'] = $NrKlienta;
     $_SESSION['czyZalogowany'] = true;
     header('location:index.php');
 }

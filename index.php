@@ -29,6 +29,7 @@ session_start();
                     <li>
                         <a href="chechout.php">Moje konto</a>
                     </li>
+                    
                     <li>
                     <?php
 
@@ -36,6 +37,10 @@ session_start();
                       
                        $nazwaUzytkownika = $_SESSION['nazwaUzytkownika'];
                        echo "Witaj ".$nazwaUzytkownika;
+                       echo "</li>";
+                       echo "<li>";
+                       echo "<a href=\"logout.php\">Wyloguj</a>";
+                     echo "</li>";
 
                     }
                     else{
@@ -81,7 +86,8 @@ session_start();
                             <a href="index.php">Moje konto</a>
                         </li>
                         <li>
-                            <a href="index.php">Przelewy</a>
+                            <a href="transfers.php">Przelewy</a>
+                            
                         </li>
                         <li>
                             <a href="index.php">Kontakt</a>
