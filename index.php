@@ -83,7 +83,7 @@ session_start();
                             <a href="index.php">Główna</a>
                         </li>
                         <li>
-                            <a href="index.php">Moje konto</a>
+                            <a href="accounts.php">Moje konto</a>
                         </li>
                         <li>
                             <a href="transfers.php">Przelewy</a>
