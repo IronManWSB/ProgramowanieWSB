@@ -25,7 +25,7 @@ $wynik = $polaczenie->query($zapytanie);
 $iloscWierszy = $wynik->num_rows;
 if ($iloscWierszy>0){
   $zapytanie = "insert into przelewy (DataPrzelewu, NaKonto, NazwaOdbiorcy, NrRachunku, TytulPrzelewu, 
-  WysokoscPrzelewu, ZKonta, ZNrKlienta) values(NOW(), $naRachunek, '$odbiorca', $nrKlienta, '$tytulPrzelewu', 
+  Kwota, ZKonta, ZNrKlienta) values(NOW(), $naRachunek, '$odbiorca', $nrKlienta, '$tytulPrzelewu', 
   $kwota, $zRachunku, $nrKlienta)";
   $wynik = $polaczenie->query($zapytanie);
   if ($wynik){
