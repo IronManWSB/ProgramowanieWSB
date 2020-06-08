@@ -9,7 +9,7 @@
   <label for="Nazwisko">Nazwisko:</label><br>
   <input type="text" id="Nazwisko" name="Nazwisko" required><br>
   <label for="Pesel">Pesel:</label><br>
-  <input type="text" id="Pesel" name="Pesel" required><br>
+  <input type="text" id="Pesel" minlength="11" maxlength="11" name="Pesel" required><br>
   <label for="Telefon">Telefon:</label><br>
   <input type="text" id="Telefon" name="Telefon" required><br>
   

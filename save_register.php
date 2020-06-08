@@ -6,10 +6,11 @@ $Imie = $_POST['Imie'];
 $Nazwisko = $_POST['Nazwisko'];
 $Pesel = $_POST['Pesel'];
 $Telefon = $_POST['Telefon'];
+$login = $_POST['email'];
 
 $polaczenie = new mysqli("localhost","Angela","123456","bank");
 
-$zapytanie = "insert into klienci (email, haslo, Imie, Nazwisko, Pesel, Telefon) values('$email', '$haslo', '$Imie', '$Nazwisko', '$Pesel', '$Telefon')";
+$zapytanie = "insert into klienci (Email, Login, haslo, Imie, Nazwisko, Pesel, Telefon) values('$email', '$login', '$haslo', '$Imie', '$Nazwisko', '$Pesel', '$Telefon')";
 
 
 if ($polaczenie->connect_errno!=0) {

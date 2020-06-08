@@ -82,15 +82,23 @@ session_start();
                         <li class="active">
                             <a href="index.php">Główna</a>
                         </li>
-                        <li>
-                            <a href="accounts.php">Moje konto</a>
-                        </li>
-                        <li>
-                            <a href="transfers.php">Przelewy</a>
+                        <?php
+                        if(isset($_SESSION['czyZalogowany'])&&($_SESSION['czyZalogowany'])){
+                           echo "<li>";
+                           echo "<a href=\"accounts.php\">Moje konto</a>";
+                        echo "</li>";
+                        echo "<li>";
+                        echo "<a href=\"transfers.php\">Przelewy</a>";
+                         
+                     echo "</li>";
+                        echo "<li>";
+                           echo "<a href=\"recipient.php\">Odbiorcy</a>";
                             
-                        </li>
+                        echo "</li>";
+                        }
+                       ?>
                         <li>
-                            <a href="index.php">Kontakt</a>
+                            <a href="contact.php">Kontakt</a>
                         </li>
                     </ul>
                 </div>
@@ -100,3 +108,5 @@ session_start();
     
 </body>
 </html>
+
+
