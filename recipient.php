@@ -21,7 +21,7 @@ echo "<tr> <td>Nazwa skrócona</td><td>Nazwisko</td><td>Imię</td><td>Numer kont
 
 for($i=0; $i<$iloscWierszy; $i++){
     $wiersz=$wynik->fetch_assoc();
-    echo "<tr> <td>".$wiersz['NazwaSkrocona']."</td><td>".$wiersz['Nazwisko']."</td><td>".$wiersz['Imie']."<\td><td>".$wiersz['KontoOdbiorcy']."</td><td><a href=\"recipientdetails.php?id=".$wiersz['IdOdbiorcy']."\">szczegóły</a></td></tr>";
+    echo "<tr> <td>".$wiersz['NazwaSkrocona']."</td><td>".$wiersz['Nazwisko']."</td><td>".$wiersz['Imie']."</td><td>".$wiersz['KontoOdbiorcy']."</td><td><a href=\"recipientdetails.php?id=".$wiersz['IdOdbiorcy']."\">szczegóły</a></td></tr>";
 }
 echo "</table>";
 

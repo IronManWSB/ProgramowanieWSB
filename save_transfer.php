@@ -30,7 +30,20 @@ if ($iloscWierszy>0){
   $kwota, $zRachunku, $nrKlienta)";
   $wynik = $polaczenie->query($zapytanie);
   if ($wynik){
-      echo "Transakcja przebiegła pomyślnie.";
+    $zapytanie = "update konto set AktualnyBilans=AktualnyBilans - $kwota where nrKonta=$zRachunku";
+
+    $wynik = $polaczenie->query($zapytanie); 
+    if($wynik)
+    {
+        echo "Transakcja przebiegła pomyślnie.";
+        header("Location:transfers.php");
+
+    }
+    else
+    {
+    echo "Błąd w aktualizacji stanu konta";
+    }
+      
   }
   else{
       echo $polaczenie->error;

@@ -23,8 +23,9 @@ if ($polaczenie->connect_errno!=0) {
 
 $wynik = $polaczenie->query($zapytanie);
 $iloscWierszy = $wynik->num_rows;
+
 if ($iloscWierszy>0){
-  $zapytanie = "insert into odbiorcy (NazwaSkrocona, Nazwisko, Imie, KontoOdbiorcy)
+   $zapytanie = "insert into odbiorcy (NazwaSkrocona, Nazwisko, Imie, KontoOdbiorcy)
    values('$NazwaSkrocona', '$Nazwisko', '$Imie', '$KontoOdbiorcy')";
   $wynik = $polaczenie->query($zapytanie);
   if ($wynik){

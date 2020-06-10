@@ -21,7 +21,23 @@ echo "<select name=\"zRachunku\" id=\"zRachunku\">";
 for($i=0; $i<$iloscWierszy; $i++)
 {
   $krotka=$wynik->fetch_assoc();
-  echo "<option value=\"".$krotka['NrKonta']."\">".$krotka['NrKonta']."</option>";
+  echo "<option value=\"".$krotka['NrKonta']."\">".$krotka['NazwaKonta']."</option>";
+}
+echo "</select>";
+
+echo "<br>";
+
+$zapytanie = "SELECT NazwaSkrocona, KontoOdbiorcy FROM odbiorcy";
+
+$wynik = $polaczenie->query($zapytanie);
+$iloscWierszy = $wynik->num_rows;
+
+echo "<label for=\"naRachunek\">Na rachunek:</label><br>";
+echo "<select name=\"naRachunek\" id=\"naRachunek\">";
+for($i=0; $i<$iloscWierszy; $i++)
+{
+  $krotka=$wynik->fetch_assoc();
+  echo "<option value=\"".$krotka['KontoOdbiorcy']."\">".$krotka['NazwaSkrocona']."</option>";
 }
 echo "</select>";
 
@@ -39,8 +55,6 @@ echo "</select>";
   <label for="tytulPrzelewu">Tytuł przelewu:</label><br>
   <input type="text" id="tytulPrzelewu" name="tytulPrzelewu" required><br>
  
-  <label for="naRachunek">Na rachunek:</label><br>
-  <input type="mediumint" id="naRachunek" minlength="26" maxlength="26" name="naRachunek" required><br>
   <label for="kwota">Kwota:</label><br>
   <input type="decimal" id="kwota" name="kwota" required><br>
   <label for="potwierdzHaslo">Potwierdź hasło:</label><br>
