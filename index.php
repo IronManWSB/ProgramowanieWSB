@@ -91,6 +91,7 @@ session_start();
                         echo "<a href=\"transfers.php\">Przelewy</a>";
                          
                      echo "</li>";
+                    
                         echo "<li>";
                            echo "<a href=\"recipient.php\">Odbiorcy</a>";
                             

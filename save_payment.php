@@ -1,13 +1,9 @@
 <?php
 session_start();
 
-$zRachunku = $_POST['zRachunku'];
-$naRachunek = $_POST['naRachunek'];
 $kwota = $_POST['kwota'];
 $potwierdzHaslo = $_POST['potwierdzHaslo'];
-$odbiorca = $_POST['odbiorca'];
-$tytulPrzelewu = $_POST['tytulPrzelewu'];
-
+$nrKonta = $_POST['nrKonta'];
 
 $polaczenie = new mysqli("localhost","Angela","123456","bank");
 
@@ -25,12 +21,17 @@ if ($polaczenie->connect_errno!=0) {
 $wynik = $polaczenie->query($zapytanie);
 $iloscWierszy = $wynik->num_rows;
 if ($iloscWierszy>0){
-  $zapytanie = "insert into przelewy (DataPrzelewu, NaKonto, NazwaOdbiorcy, NrRachunku, TytulPrzelewu, 
-  Kwota, ZKonta, ZNrKlienta) values(NOW(), $naRachunek, '$odbiorca', $nrKlienta, '$tytulPrzelewu', 
-  $kwota, $zRachunku, $nrKlienta)";
+  $zapytanie = "update konto set AktualnyBilans=AktualnyBilans + $kwota where nrKonta=$nrKonta";
+
   $wynik = $polaczenie->query($zapytanie);
-  if ($wynik){
-      echo "Transakcja przebiegła pomyślnie.";
+  if ($wynik)
+  {   
+      echo "Wpłata została dokonana pomyślnie.";
+      
+      echo "<br>";
+
+      header("Location:accounts.php");
+     
   }
   else{
       echo $polaczenie->error;
@@ -44,5 +45,4 @@ $polaczenie->close();
 
 
 ?>
-
 

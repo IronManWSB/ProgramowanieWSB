@@ -19,6 +19,15 @@ $zapytanie = "select * from konto where NrKlienta=$nrKlienta";
 
 $wynik = $polaczenie->query($zapytanie);
 $ileWierszy=$wynik->num_rows;
+if($ileWierszy>9)
+{
+    echo "Nie można założyć więcej niż 10 kont. Skontaktuj się z pracownikiem banku";
+    echo "<br>";
+    echo "<a href=\"accounts.php\">Wróć do listy kont</a>";
+
+    exit;
+}
+
 
 
 $nrKonta="1122340".$pesel."5678".$ileWierszy."000";

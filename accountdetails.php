@@ -16,7 +16,11 @@ echo "Nazwa Konta: ".$wiersz['NazwaKonta']."<br>";
 echo "Aktualny Bilans: ".$wiersz['AktualnyBilans']."<br>";
 echo "Typ Konta: ".$wiersz['TypKonta']."<br>";
 
-
-
+echo "<a href=\"create_payment.php?nrKonta=".$nrKonta."\">Dodaj wpłatę</a>";
 
 ?>
+
+<br>
+
+<a href="create_payment.php">Dodaj wypłatę</a>
+
