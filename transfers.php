@@ -129,25 +129,32 @@ $iloscWierszy = $wynik->num_rows;
 <div class="container">
 <div class="row">
 <div class="col-md-12">
-<h2 class='h2-main'>Historia transakcji</h2>";
+<h2 class='h2-main'>Historia transakcji</h2>
 <?php
 
 
-echo "<table>";
-echo "<tr> 
-        <td class='column-first'>Data przelewu</td>
-        <td class='column-name'>Wysokosc przelewu</td>
-        <td class='column-name'>Na konto</td>
-        <td class='column-name'></td>
-         </tr>
+echo "<table class='table'>";
+echo "<thead><tr> 
+        <th>Data przelewu</th>
+        <th>Wysokosc przelewu</th>
+        <th>Na konto</th>
+        <th></th>
+         </tr></thead>
          ";
 
 
 
 for($i=0; $i<$iloscWierszy; $i++){
     $wiersz=$wynik->fetch_assoc();
-    echo "<tr> <td>".$wiersz['DataPrzelewu']."</td><td>".$wiersz['Kwota']."</td><td>".$wiersz['NaKonto']."</td><td><a href=\"transferdetails.php?id=".$wiersz['IdPrzelewu']."\">szczegóły</a></td></tr>";
+    echo "<tr>
+    <td>".$wiersz['DataPrzelewu']."</td>
+    <td>".$wiersz['Kwota']."</td>
+    <td>".$wiersz['NaKonto']."</td>
+    <td><a href=\"transferdetails.php?id=".$wiersz['IdPrzelewu']."\">szczegóły</a></td>
+    </tr>";
 }
+         
+
 echo "</table><hr class='hr-no-margin'>";
 
 
