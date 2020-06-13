@@ -22,6 +22,18 @@
             <input class="input-main" type="text" id="Imie" name="Imie" required><br>
             <label class="main-label" for="Nazwisko">Nazwisko:</label><br>
             <input class="input-main" type="text" id="Nazwisko" name="Nazwisko" required><br>
+            <label class="main-label" for="Ulica">Ulica:</label><br>
+            <input class="input-main" type="text" id="Ulica" name="Ulica" required><br>
+            <label class="main-label" for="NrUlicy">Numer ulicy:</label><br>
+            <input class="input-main" type="text" id="NrUlicy" name="NrUlicy" required><br>
+            <label class="main-label" for="KodPocztowy">Kod pocztowy:</label><br>
+            <input class="input-main" type="text" id="KodPocztowy" name="KodPocztowy" required><br>
+            <label class="main-label" for="Miasto">Miasto:</label><br>
+            <input class="input-main" type="text" id="Miasto" name="Miasto" required><br>
+            <label class="main-label" for="Wojewodztwo">Województwo:</label><br>
+            <input class="input-main" type="text" id="Wojewodztwo" name="Wojewodztwo" required><br>
+            <label class="main-label" for="Kraj">Kraj:</label><br>
+            <input class="input-main" type="text" id="Kraj" name="Kraj" required><br>
             <label class="main-label" for="Pesel">Pesel:</label><br>
             <input class="input-main" type="text" id="Pesel" minlength="11" maxlength="11" name="Pesel" required><br>
             <label class="main-label" for="Telefon">Telefon:</label><br>

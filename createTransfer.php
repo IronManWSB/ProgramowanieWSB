@@ -117,7 +117,7 @@ session_start();
   <h2 class="h2-main text-center">Przelew bankowy</h2>
 <?php
 $nrKlienta = $_SESSION['nrKlienta'];
-$polaczenie = new mysqli("localhost","root","","bank");
+$polaczenie = @new mysqli("localhost","root","","bank");
 
 if ($polaczenie->connect_errno!=0) {
     echo "Brak połączenia z bazą danych: " . $polaczenie -> connect_error;
@@ -144,7 +144,7 @@ $zapytanie = "SELECT NazwaSkrocona, KontoOdbiorcy FROM odbiorcy";
 $wynik = $polaczenie->query($zapytanie);
 $iloscWierszy = $wynik->num_rows;
 
-echo "<label class='main-label label-white'  for=\"naRachunek\">Na rachunek:</label><br>";
+echo "<label class='main-label label-white'  for=\"naRachunek\">Nazwa skrócona odbiorcy:</label><br>";
 echo "<select name=\"naRachunek\" id=\"naRachunek\">";
 for($i=0; $i<$iloscWierszy; $i++)
 {

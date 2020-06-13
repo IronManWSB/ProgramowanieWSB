@@ -8,7 +8,7 @@ $KontoOdbiorcy = $_POST['KontoOdbiorcy'];
 $Haslo = $_POST['potwierdzHaslo'];
 
 
-$polaczenie = new mysqli("localhost","Angela","123456","bank");
+$polaczenie = @new mysqli("localhost","root","","bank");
 
 $nazwaUzytkownika = $_SESSION['nazwaUzytkownika'];
 $nrKlienta = $_SESSION['nrKlienta'];

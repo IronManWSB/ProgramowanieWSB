@@ -40,7 +40,7 @@ session_start();
                        echo "</li>";
                        echo "<li>";
                        echo "<a href=\"login.php\">Wyloguj</a>";
-                     echo "</li>";
+                       echo "</li>";
 
                     }
                     else{
@@ -83,19 +83,20 @@ session_start();
                             <a href="index.php">Główna</a>
                         </li>
                         <?php
-                        if(isset($_SESSION['czyZalogowany'])&&($_SESSION['czyZalogowany'])){
+                        if(isset($_SESSION['czyZalogowany'])&&($_SESSION['czyZalogowany']))
+                        {
                            echo "<li>";
                            echo "<a href=\"accounts.php\">Moje konto</a>";
-                        echo "</li>";
-                        echo "<li>";
-                        echo "<a href=\"transfers.php\">Przelewy</a>";
+                           echo "</li>";
+                           echo "<li>";
+                           echo "<a href=\"transfers.php\">Przelewy</a>";
                          
-                     echo "</li>";
+                           echo "</li>";
                     
-                        echo "<li>";
+                           echo "<li>";
                            echo "<a href=\"recipient.php\">Odbiorcy</a>";
                             
-                        echo "</li>";
+                           echo "</li>";
                         }
                        ?>
                         <li>
@@ -115,9 +116,10 @@ session_start();
     
 <?php
 $nrKlienta = $_SESSION['nrKlienta'];
-$polaczenie = new mysqli("localhost","root","","bank");
+$polaczenie = @new mysqli("localhost","root","","bank");
 
-if ($polaczenie->connect_errno!=0) {
+if ($polaczenie->connect_errno!=0) 
+{
     echo "Brak połączenia z bazą danych: " . $polaczenie -> connect_error;
     exit;
 }

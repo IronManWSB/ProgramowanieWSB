@@ -114,12 +114,12 @@ session_start();
 <div class="col-md-12 text-center">
 <a href="createRecipient.php">
 <div class="account-button">
-Dodaj odbiorce
+Dodaj odbiorcę
 </div>
 </a>
 <?php
 $nrKlienta = $_SESSION['nrKlienta'];
-$polaczenie = new mysqli("localhost","root","","bank");
+$polaczenie = @new mysqli("localhost","root","","bank");
 
 if ($polaczenie->connect_errno!=0) {
     echo "Brak połączenia z bazą danych: " . $polaczenie -> connect_error;

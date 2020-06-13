@@ -32,7 +32,7 @@ session_start();
                     if(isset($_SESSION['czyZalogowany'])&&($_SESSION['czyZalogowany'])){
                       
                        $nazwaUzytkownika = $_SESSION['nazwaUzytkownika'];
-                       echo "<a href=\"chechout.php\">Moje konto</a>";
+                       echo "<a href=\"myAccount.php\">Moje konto</a>";
                        echo "</li>";
                        echo "<li>";
                        echo "Witaj ".$nazwaUzytkownika;

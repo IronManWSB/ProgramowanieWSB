@@ -5,7 +5,7 @@ $kwota = $_POST['kwota'];
 $potwierdzHaslo = $_POST['potwierdzHaslo'];
 $nrKonta = $_POST['nrKonta'];
 
-$polaczenie = new mysqli("localhost","Angela","123456","bank");
+$polaczenie = @new mysqli("localhost","root","","bank");
 
 $nazwaUzytkownika = $_SESSION['nazwaUzytkownika'];
 $nrKlienta = $_SESSION['nrKlienta'];

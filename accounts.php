@@ -120,7 +120,7 @@ Dodaj konto osobiste
 
 
 $nrKlienta = $_SESSION['nrKlienta'];
-$polaczenie = new mysqli("localhost","root","","bank");
+$polaczenie = @new mysqli("localhost","root","","bank");
 
 if ($polaczenie->connect_errno!=0) {
     echo "Brak połączenia z bazą danych: " . $polaczenie -> connect_error;
