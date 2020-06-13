@@ -8,9 +8,10 @@ $Pesel = $_POST['Pesel'];
 $Telefon = $_POST['Telefon'];
 $login = $_POST['email'];
 
-$polaczenie = new mysqli("localhost","Angela","123456","bank");
+$polaczenie = @new mysqli("localhost","root","","bank");
 
-$zapytanie = "insert into klienci (Email, Login, haslo, Imie, Nazwisko, Pesel, Telefon) values('$email', '$login', '$haslo', '$Imie', '$Nazwisko', '$Pesel', '$Telefon')";
+$zapytanie = "insert into klienci (Email, Login, haslo, Imie, Nazwisko, Pesel, Telefon, CzyAktywny, TypUzytkownika) 
+values('$email', '$login', '$haslo', '$Imie', '$Nazwisko', '$Pesel', '$Telefon', 1, 0)";
 
 
 if ($polaczenie->connect_errno!=0) {

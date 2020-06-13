@@ -32,6 +32,8 @@ if ($iloscWierszy>0){
     $_SESSION['nazwaUzytkownika'] = $nazwaUzytkownika;
     $_SESSION['nrKlienta'] = $NrKlienta;
     $_SESSION['czyZalogowany'] = true;
+    $TypUzytkownika=$wiersz['TypUzytkownika'];
+    $_SESSION['TypUzytkownika']=$TypUzytkownika;
     header('location:index.php');
 
     }

@@ -87,6 +87,8 @@ session_start();
                         </li>
                         <?php
                         if(isset($_SESSION['czyZalogowany'])&&($_SESSION['czyZalogowany'])){
+                            if(isset($_SESSION['TypUzytkownika'])&&($_SESSION['TypUzytkownika']==0)){
+
                            echo "<li>";
                            echo "<a href=\"accounts.php\">Moje konto</a>";
                         echo "</li>";
@@ -97,8 +99,15 @@ session_start();
                     
                         echo "<li>";
                            echo "<a href=\"recipient.php\">Odbiorcy</a>";
-                            
+                       
+                           
                         echo "</li>";
+                                                }
+                         else{
+                            echo "<li>";
+                            echo "<a href=\"manage.php\">Zarządzaj</a>";
+                         echo "</li>";
+                         }
                         }
                        ?>
                         <li>
