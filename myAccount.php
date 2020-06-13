@@ -20,28 +20,24 @@ $iloscWierszy = $wynik->num_rows;
 <?php
 
 
-
-
-
-
-
-for($i=0; $i<$iloscWierszy; $i++){
+    for($i=0; $i<$iloscWierszy; $i++)
+    {
     $wiersz=$wynik->fetch_assoc();
 
-echo "Imię: ".$wiersz['Imie']."<br>";
-echo "Nazwisko: ".$wiersz['Nazwisko']."<br>";
-echo "Ulica: ".$wiersz['Ulica']."<br>";
-echo "Numer ulicy: ".$wiersz['NrUlicy']."<br>";
-echo "Kod pocztowy: ".$wiersz['KodPocztowy']."<br>";
-echo "Miasto: ".$wiersz['Miasto']."<br>";
-echo "Województwo: ".$wiersz['Wojewodztwo']."<br>";
-echo "Kraj: ".$wiersz['Kraj']."<br>";
-echo "Pesel: ".$wiersz['Pesel']."<br>";
-echo "Telefon: ".$wiersz['Telefon']."<br>";
-
+    echo "Imię: ".$wiersz['Imie']."<br>";
+    echo "Nazwisko: ".$wiersz['Nazwisko']."<br>";
+    echo "Ulica: ".$wiersz['Ulica']."<br>";
+    echo "Numer ulicy: ".$wiersz['NrUlicy']."<br>";
+    echo "Kod pocztowy: ".$wiersz['KodPocztowy']."<br>";
+    echo "Miasto: ".$wiersz['Miasto']."<br>";
+    echo "Województwo: ".$wiersz['Wojewodztwo']."<br>";
+    echo "Kraj: ".$wiersz['Kraj']."<br>";
+    echo "Pesel: ".$wiersz['Pesel']."<br>";
+    echo "Telefon: ".$wiersz['Telefon']."<br>";
+    }
 
     
-}
+
          
 
 
