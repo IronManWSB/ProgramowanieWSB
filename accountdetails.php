@@ -127,12 +127,13 @@ echo "Aktualny Bilans: ".$wiersz['AktualnyBilans']."<br>";
 echo "Typ Konta: ".$wiersz['TypKonta']."<br>";
 
 echo "<a href=\"create_payment.php?nrKonta=".$nrKonta."\">Dodaj wpłatę</a>";
+echo "<br>";
+echo "<a href=\"create_withdrawal.php?nrKonta=".$nrKonta."\">Dodaj wypłatę</a>";
 
 ?>
 
 <br>
 
-<a href="create_payment.php">Dodaj wypłatę</a>
 </div>
 </div>
 </div>

@@ -23,12 +23,8 @@ session_start();
             </div>
             <div class="col-md-6">
                 <ul class="menu">
-                    <li>
-                        <a href="Customer_register.php">Zarejestruj</a>
-                    </li>
-                    <li>
-                        <a href="chechout.php">Moje konto</a>
-                    </li>
+                    
+                    
                     
                     <li>
                     <?php
@@ -36,16 +32,23 @@ session_start();
                     if(isset($_SESSION['czyZalogowany'])&&($_SESSION['czyZalogowany'])){
                       
                        $nazwaUzytkownika = $_SESSION['nazwaUzytkownika'];
+                       echo "<a href=\"chechout.php\">Moje konto</a>";
+                       echo "</li>";
+                       echo "<li>";
                        echo "Witaj ".$nazwaUzytkownika;
                        echo "</li>";
                        echo "<li>";
                        echo "<a href=\"logout.php\">Wyloguj</a>";
                      echo "</li>";
+                     
 
                     }
                     else{
+                        echo "<a href=\"Customer_register.php\">Zarejestruj</a>";
+                        echo "</li>";
+                        echo "<li>";
                         echo "<a href=\"login.php\">Zaloguj</a>";
-                        
+                    
                     }
 
                     

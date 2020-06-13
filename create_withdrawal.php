@@ -6,15 +6,11 @@
     <link rel="stylesheet" href="styles/bootstrap-337.min.css">
     <link rel="stylesheet" href="font-awsome/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles/style.css">
-    <title>Przelewy</title>
+    <title>Critical Bank</title>
 </head>
 <body>
-    <script src="js/jquery-331.min.js"></script>
-    <script src="js/bootstrap-337.min.js"></script>
-
-<?php
-session_start();
-?>
+<script src="js/jquery-331.min.js"></script>
+<script src="js/bootstrap-337.min.js"></script>
 <div class id="top_menu">
         <div class="container">
             <div class="col-md-6 offer">
@@ -39,7 +35,7 @@ session_start();
                        echo "Witaj ".$nazwaUzytkownika;
                        echo "</li>";
                        echo "<li>";
-                       echo "<a href=\"login.php\">Wyloguj</a>";
+                       echo "<a href=\"login.php\">Wyloguj<img src='./images/logout-icon.ico' style='margin-left:10px;'/></a>";
                      echo "</li>";
 
                     }
@@ -57,9 +53,14 @@ session_start();
             </div>
         </div>
     </div>
+<form action="save_payment.php" method="post">
 
 
-    <div id="navbar" class="navbar navbar-default">
+<?php
+
+session_start();
+?>
+<div id="navbar" class="navbar navbar-default">
         <div class="cointainer">
 
             <div class="navbar-header">
@@ -104,16 +105,15 @@ session_start();
                     </ul>
                 </div>
             </div>
-        </div>
-    </div>
-    
-    <a class="link" href="createTransfer.php">
-    <div class="transfer-button">
-    <span class="link-decoration">Wykonaj przelew<span>
-    </div>
-    </a>
-    
+        </div></div>
+<div class="container">
+<div class="row">
+<div class="col-md-12 text-center">
+<h2 class="h2-main">Dodaj wypłatę</h2>
 <?php
+$nrKonta=$_GET['nrKonta'];
+
+
 $nrKlienta = $_SESSION['nrKlienta'];
 $polaczenie = new mysqli("localhost","root","","bank");
 
@@ -121,51 +121,22 @@ if ($polaczenie->connect_errno!=0) {
     echo "Brak połączenia z bazą danych: " . $polaczenie -> connect_error;
     exit;
 }
-$zapytanie = "SELECT DataPrzelewu, IdPrzelewu, NaKonto, NazwaOdbiorcy, NrRachunku, TytulPrzelewu, Kwota, ZKonta, ZNrKlienta FROM przelewy WHERE ZNrKlienta=$nrKlienta";
 
-$wynik = $polaczenie->query($zapytanie);
-$iloscWierszy = $wynik->num_rows;
+echo "<input type=\"hidden\" id=\"nrKonta\" name=\"nrKonta\" value=\"".$nrKonta."\">";
 ?>
-<div class="container">
-<div class="row">
-<div class="col-md-12">
-<h2 class='h2-main'>Historia transakcji</h2>
-<?php
+<label class="main-label label-white" for="kwota">Kwota:</label><br>
+  <input class="input-main"  type="decimal" id="kwota" name="kwota" required><br>
 
+  <label class="main-label label-white" for="potwierdzHaslo">Potwierdź hasło:</label><br>
+  <input class="input-main" type="password" id="potwierdzHaslo" name="potwierdzHaslo" required><br>
 
-echo "<table class='table'>";
-echo "<thead><tr> 
-        <th>Data przelewu</th>
-        <th>Z konta</th>
-        <th>Wysokosc przelewu</th>
-        <th>Na konto</th>
-        <th></th>
-         </tr></thead>
-         ";
+  <input class="submit-button button-margin-zero" type="submit" value="Dalej">
+ 
+  <input class="submit-button button-margin-zero" type="reset" value="Wyczyść">
 
+  
 
-
-for($i=0; $i<$iloscWierszy; $i++){
-    $wiersz=$wynik->fetch_assoc();
-    echo "<tr>
-    <td>".$wiersz['DataPrzelewu']."</td>
-    <td>".$wiersz['ZKonta']."</td>
-    <td>".$wiersz['Kwota']."</td>
-    <td>".$wiersz['NaKonto']."</td>
-
-    <td><a href=\"transferdetails.php?id=".$wiersz['IdPrzelewu']."\">szczegóły</a></td>
-    </tr>";
-}
-         
-
-echo "</table><hr class='hr-no-margin'>";
-
-
-?>
-        </div>
-    </div>
+  </form>
 </div>
-
-</body>
-</html>
-
+</div>
+</div>

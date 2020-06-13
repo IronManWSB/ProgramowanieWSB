@@ -6,7 +6,7 @@ session_start();
 $email = $_POST['email'];
 $Haslo = $_POST['Haslo'];
 
-$polaczenie = new mysqli("localhost","Angela","123456","bank");
+$polaczenie = @new mysqli("localhost","root","","bank");
 
 $zapytanie = "select * from klienci where email = '$email' and Haslo = '$Haslo'";
 
@@ -21,11 +21,22 @@ $iloscWierszy = $wynik->num_rows;
 if ($iloscWierszy>0){
     $wiersz = $wynik->fetch_assoc();
     $nazwaUzytkownika = $wiersz['Email'];
+    $czyAktywny = $wiersz['CzyAktywny'];
+    if($czyAktywny==1)
+    {
+        echo "Twoje konto nie jest aktywne, skontaktuj się z administratorem";
+    }
+    else
+    {
     $NrKlienta = $wiersz['NrKlienta'];
     $_SESSION['nazwaUzytkownika'] = $nazwaUzytkownika;
     $_SESSION['nrKlienta'] = $NrKlienta;
     $_SESSION['czyZalogowany'] = true;
     header('location:index.php');
+
+    }
+    
+
 }
 else{
     echo "Błędny email lub hasło";
