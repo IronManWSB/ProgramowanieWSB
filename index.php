@@ -123,6 +123,10 @@ session_start();
 <div class="row">
 <div class="col-md-12 text-center">   
 <h2><h2 class="h2-main">Witaj w critical bank!</h2>
+<?php
+if(isset($_SESSION['czyZalogowany'])&&($_SESSION['czyZalogowany']))
+{
+echo <<<END
 <h2 class="h2-main" style="margin-top:5%">Droga na skróty:</h2>
 <div class="col-md-6">
 <a href="createAccount.php">
@@ -164,7 +168,26 @@ Dodaj konto osobiste
  </a>
 <a href="contact.php">
 <div class="index-button">
-Kontakt
+Kontakt 
+END;
+}
+else
+{
+
+echo "<a href=\"Customer_register.php\">";
+echo "<div class=\"index-button\">";
+echo "Zarejestruj";
+echo "</div>";
+echo "</a>";
+
+echo "<a href=\"login.php\">";
+echo "<div class=\"index-button\">";
+echo "Zaloguj";
+echo "</div>";
+echo "</a>";
+
+}
+?>
 </div></div>
 </a>
 </div>
