@@ -121,7 +121,7 @@ session_start();
 <form>
     <label class="p-contact">Napisz do nas:</label>
     <textarea class="area" rows="10" cols="100"></textarea>
-    <input class="submit-button" type="submit" value="Wyślij">
+    <input class="contact-button" type="submit" value="Wyślij">
 </form>
 </div>
                     </div>

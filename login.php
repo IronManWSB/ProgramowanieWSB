@@ -11,7 +11,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-          <h2 class="h2-main" style="text-align:justify">LOGOWANIE DO BANKU</h2>  
+          <h2 class="h2-main" style="text-align:center">LOGOWANIE DO BANKU</h2>  
           </div> 
           <form class="main-form" action="save_login.php" method="post">
               <label class="main-label" for="email" >E-mail:</label><br>

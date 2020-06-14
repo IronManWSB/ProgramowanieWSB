@@ -121,14 +121,14 @@ $zapytanie = "SELECT NazwaKonta, NrKonta, AktualnyBilans, TypKonta FROM konto WH
 
 $wynik = $polaczenie->query($zapytanie);
 $wiersz = $wynik->fetch_assoc();
-echo "<h3> Szczegóły konta o numerze : ".$wiersz['NrKonta']."</h3>";
-echo "Nazwa Konta: ".$wiersz['NazwaKonta']."<br>";
-echo "Aktualny Bilans: ".$wiersz['AktualnyBilans']."<br>";
-echo "Typ Konta: ".$wiersz['TypKonta']."<br>";
+echo "<h2 class='h2-main'> Szczegóły konta o numerze <b>".$wiersz['NrKonta']."</b></h2>";
+echo "<p class='p-contact'>Nazwa Konta: <b>".$wiersz['NazwaKonta']."</b></p>";
+echo "<p class='p-contact'>Aktualny Bilans: <b>".$wiersz['AktualnyBilans']."</b></p>";
+echo "<p class='p-contact'>Typ Konta: <b>".$wiersz['TypKonta']."</b></p>";
 
-echo "<a href=\"create_payment.php?nrKonta=".$nrKonta."\">Dodaj wpłatę</a>";
+echo "<a href=\"create_payment.php?nrKonta=".$nrKonta."\"><div class='account-button account-details-margin'>Dodaj wpłatę</div></a>";
 echo "<br>";
-echo "<a href=\"create_withdrawal.php?nrKonta=".$nrKonta."\">Dodaj wypłatę</a>";
+echo "<a href=\"create_withdrawal.php?nrKonta=".$nrKonta."\"><div class='account-button'>Dodaj wypłatę</div></a>";
 
 ?>
 

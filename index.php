@@ -118,7 +118,57 @@ session_start();
             </div>
         </div>
     </div>
-    
+ 
+<div class="container">
+<div class="row">
+<div class="col-md-12 text-center">   
+<h2><h2 class="h2-main">Witaj w critical bank!</h2>
+<h2 class="h2-main" style="margin-top:5%">Droga na skróty:</h2>
+<div class="col-md-6">
+<a href="createAccount.php">
+<div class="index-button">
+Dodaj konto osobiste
+</div>
+</a>
+<a href="accounts.php">
+<div class="index-button">
+Moje konta
+</div>
+</a>
+<a href="createRecipient.php">
+ <div class="index-button">
+Dodaj odbiorce
+</div>
+ </a>
+ <a href="createTransfer.php">
+<div class="index-button">
+Wykonaj przelew
+</div>
+</a>
+</div>
+<div class="col-md-6">
+<a href="transfers.php">
+<div class="index-button">
+Historia transakcji
+</div>
+</a>
+<a href="recipient.php">
+<div class="index-button">
+Odbiorcy
+</div>
+</a>
+ <a href="createAccount.php">
+<div class="index-button">
+Dodaj konto osobiste
+</div>
+ </a>
+<a href="contact.php">
+<div class="index-button">
+Kontakt
+</div></div>
+</a>
+</div>
+</div>
 </body>
 </html>
 
