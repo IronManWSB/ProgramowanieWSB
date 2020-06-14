@@ -130,7 +130,7 @@ $iloscWierszy = $wynik->num_rows;
 <div class="container">
 <div class="row">
 <div class="col-md-12">
-<h2 class='h2-main'>Historia transakcji</h2>
+<h2 class='h2-main text-center'>Historia transakcji</h2>
 <?php
 
 
@@ -154,7 +154,7 @@ for($i=0; $i<$iloscWierszy; $i++){
     <td>".$wiersz['Kwota']."</td>
     <td>".$wiersz['NaKonto']."</td>
 
-    <td><a href=\"transferdetails.php?id=".$wiersz['IdPrzelewu']."\">szczegóły</a></td>
+    <td><a href=\"transferdetails.php?id=".$wiersz['IdPrzelewu']."\"><div class='details-button'>szczegóły</div></a></td>
     </tr>";
 }
          

@@ -1,0 +1,30 @@
+body{
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333333;
+    background: #4e524a;
+    overflow-x: hidden;
+
+}
+
+ .h2-main-save
+ {
+     margin-top:30%;
+     color:#FFFFFF;
+     text-transform: uppercase;
+     text-align:center;
+ }
+
+ @media only screen 
+ and (max-device-width: 600px)
+  { 
+ 
+    .h2-main-save
+    {
+        margin-top:60%;
+        color:#FFFFFF;
+        text-transform: uppercase;
+        text-align:center;
+    }
+   
+}

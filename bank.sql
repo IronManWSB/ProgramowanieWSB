@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 04 Cze 2020, 18:51
+-- Czas generowania: 08 Cze 2020, 23:50
 -- Wersja serwera: 10.4.11-MariaDB
 -- Wersja PHP: 7.4.3
 
@@ -19,8 +19,28 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Baza danych: `bank`
+-- Baza danych: `test`
 --
+
+DELIMITER $$
+--
+-- Funkcje
+--
+CREATE DEFINER=`root`@`localhost` FUNCTION `hello` (`s` CHAR(20)) RETURNS CHAR(50) CHARSET utf8mb4 RETURN CONCAT('Hello, ',s,'!')$$
+
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `administratorzy`
+--
+
+CREATE TABLE `administratorzy` (
+  `IdAdministratora` mediumint(9) NOT NULL,
+  `NrKlienta` mediumint(9) NOT NULL,
+  `Stanowisko` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -81,8 +101,24 @@ CREATE TABLE `klienci` (
   `Pesel` varchar(11) NOT NULL,
   `Telefon` varchar(45) NOT NULL,
   `Login` varchar(45) NOT NULL,
-  `Haslo` varchar(45) NOT NULL
+  `Haslo` varchar(45) NOT NULL,
+  `TypUzytkownika` smallint(1) DEFAULT NULL,
+  `CzyAktywny` smallint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Wyzwalacze `klienci`
+--
+DELIMITER $$
+CREATE TRIGGER `przed_dodaniem_nrpesel` BEFORE INSERT ON `klienci` FOR EACH ROW BEGIN
+        -- condition to check
+        IF NEW.pesel < 0 THEN
+            -- hack to solve absence of SIGNAL/prepared statements in triggers
+            UPDATE `Error: invalid_id_test` SET x=1;
+        END IF;
+    END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -153,7 +189,6 @@ CREATE TABLE `kontrola` (
 
 CREATE TABLE `linia_kredytowa` (
   `IdKredytu` mediumint(9) NOT NULL,
-  `NrKlienta` mediumint(9) NOT NULL,
   `NrKonta` varchar(26) NOT NULL,
   `OplataZaDebet` decimal(10,2) NOT NULL,
   `WysokoscLiniiKredytu` decimal(10,2) NOT NULL,
@@ -277,6 +312,13 @@ CREATE TABLE `zaswiadczenia` (
 --
 
 --
+-- Indeksy dla tabeli `administratorzy`
+--
+ALTER TABLE `administratorzy`
+  ADD PRIMARY KEY (`IdAdministratora`),
+  ADD KEY `NrKlienta` (`NrKlienta`);
+
+--
 -- Indeksy dla tabeli `adresy`
 --
 ALTER TABLE `adresy`
@@ -340,8 +382,7 @@ ALTER TABLE `kontrola`
 --
 ALTER TABLE `linia_kredytowa`
   ADD PRIMARY KEY (`IdKredytu`) KEY_BLOCK_SIZE=9,
-  ADD KEY `NrKonta` (`NrKonta`),
-  ADD KEY `NrKlienta` (`NrKlienta`);
+  ADD KEY `NrKonta` (`NrKonta`);
 
 --
 -- Indeksy dla tabeli `lokaty`
@@ -355,7 +396,6 @@ ALTER TABLE `lokaty`
 --
 ALTER TABLE `odbiorcy`
   ADD PRIMARY KEY (`IdOdbiorcy`),
-  ADD KEY `KontoOdbiorcy` (`KontoOdbiorcy`);
 
 --
 -- Indeksy dla tabeli `pelnomocnictwo`
@@ -371,7 +411,6 @@ ALTER TABLE `przelewy`
   ADD PRIMARY KEY (`IdPrzelewu`) KEY_BLOCK_SIZE=9,
   ADD KEY `NrRachunku` (`NrRachunku`),
   ADD KEY `ZNrKlienta` (`ZNrKlienta`),
-  ADD KEY `NaNrKlienta` (`NaNrKlienta`);
 
 --
 -- Indeksy dla tabeli `rachunki`
@@ -403,6 +442,12 @@ ALTER TABLE `zaswiadczenia`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT dla tabeli `administratorzy`
+--
+ALTER TABLE `administratorzy`
+  MODIFY `IdAdministratora` mediumint(9) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT dla tabeli `alerty`
@@ -475,6 +520,12 @@ ALTER TABLE `zaswiadczenia`
 --
 
 --
+-- Ograniczenia dla tabeli `administratorzy`
+--
+ALTER TABLE `administratorzy`
+  ADD CONSTRAINT `administratorzy_ibfk_1` FOREIGN KEY (`NrKlienta`) REFERENCES `klienci` (`NrKlienta`);
+
+--
 -- Ograniczenia dla tabeli `adresy`
 --
 ALTER TABLE `adresy`
@@ -491,6 +542,12 @@ ALTER TABLE `alerty`
 --
 ALTER TABLE `karty`
   ADD CONSTRAINT `karty_ibfk_1` FOREIGN KEY (`NrKonta`) REFERENCES `konto` (`NrKonta`);
+
+--
+-- Ograniczenia dla tabeli `konto`
+--
+ALTER TABLE `konto`
+  ADD CONSTRAINT `konto_ibfk_1` FOREIGN KEY (`NrKlienta`) REFERENCES `klienci` (`NrKlienta`);
 
 --
 -- Ograniczenia dla tabeli `konto_osobiste`
@@ -515,20 +572,13 @@ ALTER TABLE `kontrola`
 -- Ograniczenia dla tabeli `linia_kredytowa`
 --
 ALTER TABLE `linia_kredytowa`
-  ADD CONSTRAINT `linia_kredytowa_ibfk_1` FOREIGN KEY (`NrKlienta`) REFERENCES `klienci` (`NrKlienta`),
-  ADD CONSTRAINT `linia_kredytowa_ibfk_2` FOREIGN KEY (`NrKonta`) REFERENCES `konto` (`NrKonta`);
+  ADD CONSTRAINT `linia_kredytowa_ibfk_1` FOREIGN KEY (`NrKonta`) REFERENCES `konto` (`NrKonta`);
 
 --
 -- Ograniczenia dla tabeli `lokaty`
 --
 ALTER TABLE `lokaty`
   ADD CONSTRAINT `lokaty_ibfk_1` FOREIGN KEY (`NrKonta`) REFERENCES `konto` (`NrKonta`);
-
---
--- Ograniczenia dla tabeli `odbiorcy`
---
-ALTER TABLE `odbiorcy`
-  ADD CONSTRAINT `odbiorcy_ibfk_1` FOREIGN KEY (`KontoOdbiorcy`) REFERENCES `konto` (`NrKonta`);
 
 --
 -- Ograniczenia dla tabeli `pelnomocnictwo`
@@ -541,7 +591,6 @@ ALTER TABLE `pelnomocnictwo`
 --
 ALTER TABLE `przelewy`
   ADD CONSTRAINT `przelewy_ibfk_1` FOREIGN KEY (`ZNrKlienta`) REFERENCES `klienci` (`NrKlienta`),
-  ADD CONSTRAINT `przelewy_ibfk_2` FOREIGN KEY (`NaNrKlienta`) REFERENCES `odbiorcy` (`IdOdbiorcy`);
 
 --
 -- Ograniczenia dla tabeli `rachunki`

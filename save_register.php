@@ -1,3 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap-337.min.css">
+    <link rel="stylesheet" href="font-awsome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/save.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Przelewy</title>
+</head>
+<body>
+<div class="container">
+<div class="row">
+<div class="col-md-12">
 <?php
 
 $email = $_POST['email'];
@@ -37,10 +52,12 @@ if ($wynik)
     ('$KodPocztowy', '$Kraj', '$Miasto', '$NrKlienta', '$NrUlicy', '$Ulica', '$Wojewodztwo')";
     $wynik = $polaczenie->query($zapytanie);
     if($wynik){
-    echo "Rejestracja przebiegła pomyślnie.";
+    echo "<h2 class='h2-main-save'>Rejestracja przebiegła pomyślnie!</h2>";
+    echo "<a href='login.php'><div class='account-button margin-separator'>Zaloguj się</div></a>";
+        
     }
     else{
-        echo "Błąd! Skontaktuj się z administratorem";
+        echo "<h2 class='h2-main-save '>Błąd! Skontaktuj się z administratorem</h2>";
     }
 }
 else{
@@ -48,5 +65,8 @@ else{
 }
 $polaczenie->close();
 ?>
-
-
+</div>
+</div>
+</div>
+</body>
+</html>

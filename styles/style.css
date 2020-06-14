@@ -376,8 +376,8 @@ a:hover[href^="tel:"]
     text-decoration:none;
     border-radius:20px;
     padding-top:35px;
-    padding-left:20px;
     text-transform:uppercase;
+    text-align:center;
     
 }
 
@@ -419,7 +419,7 @@ and (max-device-width: 600px)
 }
 
 
-/* style dla linków  "szczegóły" w accounts.php*/
+/* style dla linków "szczegóły" w accounts.php i recipient.php */
 .details-button
 {
     width:100%;
@@ -432,6 +432,9 @@ and (max-device-width: 600px)
     text-align:center;
     text-transform:uppercase;
 }
+
+
+/* style dla linków "szczegóły" w transfers/php */
 
 /* ostylowanie tabeli */
 .table{
@@ -580,3 +583,18 @@ and (max-device-width: 600px)
      
  }
  
+ /*klasa pomocnicza służąca jako separator pomiędzy elementami*/
+ .margin-separator
+ {
+    margin-top:3%;
+ }
+
+ .details-margin
+ {
+     margin-top:15%;
+ }
+
+ .save-background
+ {
+     background:#4e524a;
+ }

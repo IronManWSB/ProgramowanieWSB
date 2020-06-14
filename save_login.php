@@ -1,4 +1,18 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap-337.min.css">
+    <link rel="stylesheet" href="font-awsome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/save.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Przelewy</title>
+</head>
+<body>
+<div class="container">
+<div class="row">
+<div class="col-md-12">
 <?php
 
 session_start();
@@ -24,7 +38,8 @@ if ($iloscWierszy>0){
     $czyAktywny = $wiersz['CzyAktywny'];
     if($czyAktywny==1)
     {
-        echo "Twoje konto nie jest aktywne, skontaktuj się z administratorem";
+        echo "<h2 class='h2-main-save'>Twoje konto nie jest aktywne, skontaktuj się z administratorem</h2>";
+        echo "<a href='contact.php'><div class='account-button margin-separator'>Kontakt</div></a>";
     }
     else
     {
@@ -41,8 +56,14 @@ if ($iloscWierszy>0){
 
 }
 else{
-    echo "Błędny email lub hasło";
+    echo "<h2 class='h2-main-save'>Błędny email lub hasło</h2>";
+    echo "<a href='login.php'><div class='account-button margin-separator'>Spróbuj ponownie</div></a>";
 }
 $polaczenie->close();
 
 ?>
+</div>
+</div>
+</div>
+</body>
+</html>

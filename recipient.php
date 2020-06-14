@@ -117,6 +117,7 @@ session_start();
 Dodaj odbiorcę
 </div>
 </a>
+<h2 class="h2-main text-center">Lista odbiorców</h2>
 <?php
 $nrKlienta = $_SESSION['nrKlienta'];
 $polaczenie = @new mysqli("localhost","root","","bank");
@@ -142,10 +143,11 @@ echo "<thead><tr>
 
 for($i=0; $i<$iloscWierszy; $i++){
     $wiersz=$wynik->fetch_assoc();
-    echo "<tr> <td>".$wiersz['NazwaSkrocona']."</td>
+    echo "<tr> 
+    <td>".$wiersz['NazwaSkrocona']."</td>
     <td>".$wiersz['Nazwisko']."</td>
     <td>".$wiersz['Imie']."</td><td>".$wiersz['KontoOdbiorcy']."</td>
-    <td><a href=\"recipientdetails.php?id=".$wiersz['IdOdbiorcy']."\">szczegóły</a>
+    <td><a href=\"recipientdetails.php?id=".$wiersz['IdOdbiorcy']."\"><div class='details-button'>szczegóły</div></a>
     </td></tr>";
 }
 echo "</table>";

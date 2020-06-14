@@ -184,13 +184,13 @@ else
 {
 
 echo "<a href=\"Customer_register.php\">";
-echo "<div class=\"index-button\">";
+echo "<div class=\"account-button margin-separator\">";
 echo "Zarejestruj";
 echo "</div>";
 echo "</a>";
 
 echo "<a href=\"login.php\">";
-echo "<div class=\"index-button\">";
+echo "<div class=\"account-button margin-separator\">";
 echo "Zaloguj";
 echo "</div>";
 echo "</a>";

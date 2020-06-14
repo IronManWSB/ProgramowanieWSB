@@ -1,3 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap-337.min.css">
+    <link rel="stylesheet" href="font-awsome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/save.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Przelewy</title>
+</head>
+<body>
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+
 <?php
 session_start();
 
@@ -29,19 +45,25 @@ if ($iloscWierszy>0){
    values('$NazwaSkrocona', '$Nazwisko', '$Imie', '$KontoOdbiorcy')";
   $wynik = $polaczenie->query($zapytanie);
   if ($wynik){
-      echo "Odbiorca został zapisany pomyślnie.";
+      echo "<h2 class='h2-main-save'>Odbiorca został zapisany pomyślnie.</h2>";
+      echo "echo <a href=\"recipient.php\"><div class='account-button margin-separator'>Wróć do listy odbiorców</div></a>";
   }
   else{
       echo $polaczenie->error;
   }
 }
 else{
-    echo "Błędne hasło";
+    echo "<h2 class='h2-main-save'>Błędne hasło</h2>";
+    echo "echo <a href=\"recipient.php\"><div class='account-button margin-separator'>Wróć do listy odbiorców</div></a>";
 }
 $polaczenie->close();
 
 
-
 ?>
+</div>
+</div>
+</div>
+</body>
+</html>
 
 
