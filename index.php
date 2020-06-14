@@ -126,6 +126,8 @@ session_start();
 <?php
 if(isset($_SESSION['czyZalogowany'])&&($_SESSION['czyZalogowany']))
 {
+    if(isset($_SESSION['TypUzytkownika'])&&($_SESSION['TypUzytkownika']==0)){
+
 echo <<<END
 <h2 class="h2-main" style="margin-top:5%">Droga na skróty:</h2>
 <div class="col-md-6">
@@ -171,6 +173,13 @@ Dodaj konto osobiste
 Kontakt 
 END;
 }
+else{
+    echo "<a href=\"manage.php\">";
+echo "<div class=\"index-button\">";
+echo "Zarządzaj";
+echo "</div>";
+echo "</a>";
+ }}
 else
 {
 
