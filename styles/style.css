@@ -5,6 +5,7 @@ body{
     color: #333333;
     background: #4e524a;
     overflow-x: hidden;
+
 }
 
 /*Top styles*/
@@ -62,7 +63,7 @@ body{
 
 #top_menu ul.menu > li + li::before{
     content: "|\00a0";
-    color: f7f7f7;
+    color: #f7f7f7;
     padding: 0 5px;
 }
 
@@ -86,3 +87,496 @@ body{
 .padding-nav{
     padding-top: 10px;
 }
+
+/* przycisk wyswietlany w pliku transfers.php */
+.transfer-button
+{
+    margin: 0 auto;
+    width:20%;
+    height:100px;
+    background-color:#5cb85c;
+    color:#FFFFFF;
+    font-size:25px;
+    text-decoration:none;
+    border-radius:20px;
+    padding-top:35px;
+    padding-left:70px;
+    text-transform:uppercase;
+    
+}
+
+@media only screen 
+and (max-device-width: 600px)
+ { 
+    .transfer-button
+    {
+     margin: 0 auto;
+    width:100%;
+    height:100px;
+    background-color:#5cb85c;
+    color:#FFFFFF;
+    font-size:25px;
+    text-decoration:none;
+    border-radius:20px;
+    padding-top:35px;
+    padding-left:50px;
+    text-transform:uppercase;
+    }
+  }
+
+.link-decoration
+{
+    text-decoration:none;
+}
+
+.column-name
+{
+    color:#FFFFFF;
+    padding-left:300px;
+    display: inline-block;
+    font-size:20px;
+
+}
+/*ostylowanie nagłówka h2 */
+.h2-main
+{
+ color:#FFFFFF;
+ text-transform: uppercase;
+}
+/*style nagłówka h2 dla określonej szerokości ekranu */
+@media only screen 
+and (max-device-width: 600px)
+ { 
+
+    .h2-main
+    {
+     color:#FFFFFF;
+     text-transform: uppercase;
+     font-size:20px;
+    }
+  }
+
+
+/* klasa pomocnicza nadpisująca marginesy */
+.hr-no-margin
+{
+    margin-top:0px;
+}
+
+/* srodkowanie tresci, klasa pomocnicza */
+.text-center
+{
+    text-align:center;
+}
+/*style pól typu input*/
+.input-main{
+  
+    margin: 0;
+    color: #000;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 50%;
+    max-width:100%;
+    padding: 8px 14px 6px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    z-index: 1;
+    min-height: 40px;
+    position: relative;
+    padding-top:30px;
+    text-align:center;
+
+  }
+
+  /*style dla pól typu input na urządzeniach mobilnych*/
+  @media only screen 
+  and (max-device-width: 600px)
+   { 
+  
+    .input-main{
+  
+        margin: 0;
+        color: #000;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        width: 100%;
+        max-width:100%;
+        padding: 8px 14px 6px;
+        border-radius: 4px;
+        border: 1px solid transparent;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        z-index: 1;
+        min-height: 40px;
+        position: relative;
+        padding-top:30px;
+        text-align:center;
+    
+      }
+    }
+
+
+  /*zwiększenie czcionki napisów w elementach input o typie text*/
+input[type=text]
+{
+    font-size:30px;
+}
+  /*zwiększenie czcionki napisów w elementach input o typie decimal*/
+
+input[type=decimal]
+{
+    font-size:30px;
+}
+
+  /*zwiększenie czcionki napisów w elementach input o typie password*/
+
+input[type=password]
+{
+    font-size:30px;
+}
+
+/* zmiana styli dla pól typu textarea*/
+textarea
+{
+ font-size:20px;   
+}
+
+/*styl formularza*/
+  .main-form
+{
+
+position:relative;
+display:block;
+max-width:100%
+}
+/*styl elementów label*/
+.main-label{
+    font-size: 18px;
+    color:rgb(48, 4, 4);
+    margin-top:2%;
+    margin-bottom:2%;
+  }
+  /*styl przycisku*/
+  .submit-button{
+    margin-top: 2%;
+    border-radius:5%;
+    background-color:rgb(48, 4, 4);
+    width:25%;
+    height:50px;
+    color:#FFFFFF;
+    margin-left:25%;
+
+  }
+
+
+  /*responsywne przyciski submit*/
+  @media only screen 
+  and (max-device-width: 600px)
+   { 
+  
+        .submit-button{
+            border-radius:5%;
+            background-color:rgb(48, 4, 4);
+            width:100%;
+            height:50px;
+            color:#FFFFFF;
+        
+      }
+
+      .button-margin-zero
+     {
+      margin-left:0px;
+      margin-bottom:0px!important;
+    }
+    }
+  
+  .margin-button-left
+  {
+    margin-right:50px;
+  }
+  /*nadpisanie koloru czcionki label*/
+  .label-white
+  {
+      color:#ffffff!important;
+  }
+
+  /*usunięcie marginu dla buttonów w pliku createTransfer.php*/
+  .button-margin-zero
+  {
+      margin-left:0px;
+      margin-bottom:30px;
+  }
+/*zmiana koloru nagłowka H1 oraz wyśrodkowanie w kontenerze*/
+  .h1-main
+  {
+
+    color:#FFFFFF;
+    text-align:center;
+  }
+
+  .p-contact
+  {
+    line-height:30px;
+    font-size:20px;
+    color:#FFFFFF;
+  }
+
+  .area
+{
+
+ max-width:100%;
+ position:relative;
+ 
+}
+
+/* zmiana styli dla wszystkich href mailto:*/
+a[href^="tel:"]
+{
+    color:rgb(185, 130, 28)!important;
+    text-decoration: none;
+}
+
+/* zmiana styli dla wszystkich href tel:*/
+a[href^="mailto:"]
+{
+    color:rgb(185, 130, 28)!important;
+    text-decoration: none;
+}
+
+/* zmiana styli po najechaniu na href mailto:*/
+a:hover[href^="mailto:"]
+{
+    color:red!important;
+    text-decoration: none;
+}
+/* zmiana po najechaniu na href tel:*/
+a:hover[href^="tel:"]
+{
+    color:red!important;
+    text-decoration: none;
+}
+
+/*przycisk "dodaj konto osobiste" na stronie accounts.php*/
+.account-button
+{
+    margin: 0 auto;
+    width:50%;
+    height:100px;
+    background-color:#5cb85c;
+    color:#FFFFFF;
+    font-size:25px;
+    text-decoration:none;
+    border-radius:20px;
+    padding-top:35px;
+    padding-left:20px;
+    text-transform:uppercase;
+    
+}
+
+/*responsywne buttony*/
+@media only screen 
+and (max-device-width: 600px)
+ { 
+
+.account-button
+{
+    margin: 0 auto;
+    width:100%;
+    height:100px;
+    background-color:#5cb85c;
+    color:#FFFFFF;
+    font-size:25px;
+    text-decoration:none;
+    border-radius:20px;
+    padding-top:35px;
+    padding-left:20px;
+    text-transform:uppercase;
+    
+}
+  }
+
+
+/*kolumny na stronie accounts.php */
+
+
+.column-account
+{
+    color:#FFFFFF;
+    padding-left:200px;
+    display: inline-block;
+    font-size:20px;
+    text-align:center;
+    font-weight:bold;
+    
+}
+
+
+/* style dla linków  "szczegóły" w accounts.php*/
+.details-button
+{
+    width:100%;
+    padding: 5px;
+    background-color:#5cb85c;
+    text-decoration:none;
+    color:#FFFFFF;
+    border-radius:10px;
+    font-weight:bold;
+    text-align:center;
+    text-transform:uppercase;
+}
+
+/* ostylowanie tabeli */
+.table{
+    color:#FFFFFF!important;
+    margin: 0 auto;
+    margin-top:30px;
+    
+}
+
+.table th, td{
+    padding-left:50px;
+    color:#FFFFFF;
+    font-weight:bold;
+    text-align:left;
+}
+
+.table th{
+font-size:20px;
+}
+
+.table td{
+    font-size:14px;
+    padding: 15px;
+}
+
+.table tr{
+    border-bottom: 1px solid rgba(83, 80, 80, 0.5);
+   
+}
+
+.account-details-margin
+{
+    margin-top:20%;
+}
+
+/*responsywne wyświetlanie się tabel i ich elementów */
+
+@media only screen 
+and (max-device-width: 600px)
+ { 
+
+/* ostylowanie tabeli */
+.table{
+    color:#FFFFFF!important;
+    margin: 0 auto;
+    margin-top:30px;
+    
+    
+}
+
+.table th, td{
+    padding-left:50px;
+    color:#FFFFFF;
+    font-weight:bold;
+    text-align:left;
+    
+    
+}
+
+.table th{
+font-size:15px;
+
+}
+
+.table td{
+    font-size:10px;
+    padding: 15px;
+  
+}
+
+.table tr{
+    border-bottom: 1px solid rgba(83, 80, 80, 0.5);
+    
+}
+
+.account-details-margin
+{
+    margin-top:20%;
+    width:100%;
+    max-width:100%;
+}
+
+  }
+
+  /*przycisk na stronie kontaktowej */
+.contact-button
+{
+    margin-top: 2%;
+    border-radius:5%;
+    background-color:rgb(48, 4, 4);
+    width:50%;
+    height:50px;
+    color:#FFFFFF;
+    margin-left:25%;
+}
+
+/* responsywnosc przycisku na stronie kontaktowej */
+  @media only screen 
+and (max-device-width: 600px)
+ {
+    .contact-button
+{
+    margin-top: 2%;
+    border-radius:5%;
+    background-color:rgb(48, 4, 4);
+    width:100%;
+    height:50px;
+    color:#FFFFFF;   
+}
+
+  }
+
+
+  /*buttony wyswietlane na stronie glownej */
+  .index-button
+{
+    margin: 0 auto;
+    width:100%;
+    height:100px;
+    background-color:#5cb85c;
+    color:#FFFFFF;
+    font-size:25px;
+    text-decoration:none;
+    border-radius:20px;
+    padding-top:35px;
+    padding-left:20px;
+    text-transform:uppercase;
+    margin-top:2%;
+    
+}
+
+ /* responsywne buttony wyswietlane na stronie glownej */
+ .index-button
+ {
+     margin: 0 auto;
+     width:100%;
+     height:100px;
+     background-color:#5cb85c;
+     color:#FFFFFF;
+     font-size:17px;
+     text-decoration:none;
+     border-radius:20px;
+     text-transform:uppercase;
+     margin-top:5%;
+     padding-top:40px;
+     
+ }
+ 
