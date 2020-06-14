@@ -35,6 +35,8 @@ body{
     }
 }
 
+
+
 #top_menu a{
     color: white;
 }
@@ -100,13 +102,13 @@ body{
     text-decoration:none;
     border-radius:20px;
     padding-top:35px;
-    padding-left:70px;
+    text-align:center;
     text-transform:uppercase;
     
 }
 
 @media only screen 
-and (max-device-width: 600px)
+and (max-device-width: 900px)
  { 
     .transfer-button
     {
@@ -119,7 +121,6 @@ and (max-device-width: 600px)
     text-decoration:none;
     border-radius:20px;
     padding-top:35px;
-    padding-left:50px;
     text-transform:uppercase;
     }
   }
@@ -168,6 +169,9 @@ and (max-device-width: 600px)
 {
     text-align:center;
 }
+
+
+
 /*style pól typu input*/
 .input-main{
   
@@ -396,8 +400,6 @@ and (max-device-width: 600px)
     font-size:25px;
     text-decoration:none;
     border-radius:20px;
-    padding-top:35px;
-    padding-left:20px;
     text-transform:uppercase;
     
 }
@@ -473,7 +475,7 @@ font-size:20px;
 /*responsywne wyświetlanie się tabel i ich elementów */
 
 @media only screen 
-and (max-device-width: 600px)
+and (max-device-width: 800px)
  { 
 
 /* ostylowanie tabeli */
@@ -495,7 +497,7 @@ and (max-device-width: 600px)
 }
 
 .table th{
-font-size:15px;
+font-size:10px;
 
 }
 
@@ -583,7 +585,7 @@ and (max-device-width: 600px)
      
  }
  
- /*klasa pomocnicza służąca jako separator pomiędzy elementami*/
+ /*klasa pomocnicza służąca jako separatwor pomiędzy elementami*/
  .margin-separator
  {
     margin-top:3%;
@@ -598,3 +600,23 @@ and (max-device-width: 600px)
  {
      background:#4e524a;
  }
+
+.padding-left-md
+
+{
+    padding-left:30%;
+}
+
+
+@media only screen 
+and (max-device-width: 1000px)
+ {
+
+    .padding-left-md
+
+    {
+      padding-left:0;
+    }
+}
+
+

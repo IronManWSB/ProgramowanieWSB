@@ -8,10 +8,10 @@
       <title>Bank online - Poznań</title>
   </head>
   <body>
-    <div class="container">
+    <div class="container-register">
         <div class="row">
           <div class="col-md-12">
-          <h2 class="h2-main"  style="text-align:center">REJESTRACA W BANKU</h2>  
+          <h2 class="h2-main"  style="text-align:center">REJESTRACjA W BANKU</h2>  
           </div>
           <div class="col-md-6">
           <form action="save_register.php" method="post">

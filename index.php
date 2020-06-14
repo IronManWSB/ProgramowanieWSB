@@ -175,7 +175,7 @@ END;
 }
 else{
     echo "<a href=\"manage.php\">";
-echo "<div class=\"index-button\">";
+echo "<div class=\"account-button margin-separator\">";
 echo "Zarządzaj";
 echo "</div>";
 echo "</a>";
