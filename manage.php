@@ -159,7 +159,7 @@
                 }
                         
 
-                echo "</table><hr class='hr-no-margin'>";
+                echo "</table>";
 
 
                 ?>
