@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/bootstrap-337.min.css">
     <link rel="stylesheet" href="font-awsome/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles/style.css">
-    <title>Critical Bank</title>
+    <title>Critical Bank - strona główna</title>
 </head>
 <body>
     <script src="js/jquery-331.min.js"></script>
@@ -19,7 +19,6 @@ session_start();
         <div class="container">
             <div class="col-md-6 offer">
                 <a href="#" class= "btn btn-success btn-sm">Critical Bank</a>
-                <a href="checkuot.php"> Users is 5</a>
             </div>
             <div class="col-md-6">
                 <ul class="menu">
@@ -72,10 +71,7 @@ session_start();
                     <i class="fa fa-align-justify"></i>
                 </button>
 
-                <button class="navbar-toggle" data-toggle="collapse" data-target="#search">
-                    <span class="sr-only">Toggle Search</span>
-                    <i class="fa fa-search"></i>
-                </button>
+      
 
             </div>
 

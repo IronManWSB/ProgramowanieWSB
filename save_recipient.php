@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="font-awsome/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles/save.css">
     <link rel="stylesheet" href="styles/style.css">
-    <title>Przelewy</title>
+    <title>Zapisano odbiorcę</title>
 </head>
 <body>
 <div class="container">

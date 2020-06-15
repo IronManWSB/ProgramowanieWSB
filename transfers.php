@@ -6,12 +6,12 @@
     <link rel="stylesheet" href="styles/bootstrap-337.min.css">
     <link rel="stylesheet" href="font-awsome/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles/style.css">
-    <title>Przelewy</title>
+    <title>Przelewy i historia transakcji</title>
 </head>
+
 <body>
     <script src="js/jquery-331.min.js"></script>
     <script src="js/bootstrap-337.min.js"></script>
-
 <?php
 session_start();
 ?>
@@ -19,7 +19,6 @@ session_start();
         <div class="container">
             <div class="col-md-6 offer">
                 <a href="#" class= "btn btn-success btn-sm">Critical Bank</a>
-                <a href="checkuot.php"> Users is 5</a>
             </div>
             <div class="col-md-6">
                 <ul class="menu">
@@ -56,25 +55,15 @@ session_start();
             </div>
         </div>
     </div>
-
-
+    
     <div id="navbar" class="navbar navbar-default">
         <div class="cointainer">
-
             <div class="navbar-header">
-                
                 <button class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
                     <span class="sr-only">Toggle Navigation</span>
                     <i class="fa fa-align-justify"></i>
                 </button>
-
-                <button class="navbar-toggle" data-toggle="collapse" data-target="#search">
-                    <span class="sr-only">Toggle Search</span>
-                    <i class="fa fa-search"></i>
-                </button>
-
             </div>
-
             <div class="navbar-collapse collapse" id="navigation">
                 <div class="padding-nav">
                     <ul class="nav navbar-nav left">
@@ -108,11 +97,10 @@ session_start();
     </div>
     
     <a class="link" href="createTransfer.php">
-    <div class="transfer-button">
-    <span class="link-decoration">Wykonaj przelew<span>
-    </div>
-    </a>
-    
+        <div class="transfer-button">
+        <span class="link-decoration">Wykonaj przelew<span>
+        </div>
+    </a> 
 <?php
 $nrKlienta = $_SESSION['nrKlienta'];
 $polaczenie = @new mysqli("localhost","root","","bank");
@@ -128,45 +116,35 @@ $wynik = $polaczenie->query($zapytanie);
 $iloscWierszy = $wynik->num_rows;
 ?>
 <div class="container">
-<div class="row">
-<div class="col-md-12">
-<h2 class='h2-main text-center'>Historia transakcji</h2>
-<?php
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class='h2-main text-center'>Historia transakcji</h2>
+            <?php
+            echo "<table class='table'>";
+            echo "<thead><tr> 
+                    <th>Data przelewu</th>
+                    <th>Z konta</th>
+                    <th>Wysokosc przelewu</th>
+                    <th>Na konto</th>
+                    <th></th>
+                    </tr></thead>
+                    ";
 
-
-echo "<table class='table'>";
-echo "<thead><tr> 
-        <th>Data przelewu</th>
-        <th>Z konta</th>
-        <th>Wysokosc przelewu</th>
-        <th>Na konto</th>
-        <th></th>
-         </tr></thead>
-         ";
-
-
-
-for($i=0; $i<$iloscWierszy; $i++){
-    $wiersz=$wynik->fetch_assoc();
-    echo "<tr>
-    <td>".$wiersz['DataPrzelewu']."</td>
-    <td>".$wiersz['ZKonta']."</td>
-    <td>".$wiersz['Kwota']."</td>
-    <td>".$wiersz['NaKonto']."</td>
-
-    <td><a href=\"transferdetails.php?id=".$wiersz['IdPrzelewu']."\"><div class='details-button'>szczegóły</div></a></td>
-    </tr>";
-}
-         
-
-echo "</table><hr class='hr-no-margin'>";
-
-
-?>
+            for($i=0; $i<$iloscWierszy; $i++){
+                $wiersz=$wynik->fetch_assoc();
+                echo "<tr>
+                <td>".$wiersz['DataPrzelewu']."</td>
+                <td>".$wiersz['ZKonta']."</td>
+                <td>".$wiersz['Kwota']."</td>
+                <td>".$wiersz['NaKonto']."</td>
+                <td><a href=\"transferdetails.php?id=".$wiersz['IdPrzelewu']."\"><div class='details-button'>szczegóły</div></a></td>
+                </tr>";
+            }                  
+            echo "</table>";
+            ?>
         </div>
     </div>
 </div>
-
-</body>
+    </body>
 </html>
 
