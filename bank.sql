@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 08 Cze 2020, 23:50
+-- Czas generowania: 16 Cze 2020, 22:16
 -- Wersja serwera: 10.4.11-MariaDB
--- Wersja PHP: 7.4.3
+-- Wersja PHP: 7.4.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Baza danych: `test`
+-- Baza danych: `bank`
 --
 
 DELIMITER $$
@@ -57,6 +56,14 @@ CREATE TABLE `adresy` (
   `NrUlicy` int(3) NOT NULL,
   `KodPocztowy` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Zrzut danych tabeli `adresy`
+--
+
+INSERT INTO `adresy` (`NrKlienta`, `Kraj`, `Wojewodztwo`, `Miasto`, `Ulica`, `NrUlicy`, `KodPocztowy`) VALUES
+(1, 'a', 'a', 'a', 'a', 0, 0),
+(2, 'admin', 'admin', 'admin', 'admin', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -107,6 +114,14 @@ CREATE TABLE `klienci` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Zrzut danych tabeli `klienci`
+--
+
+INSERT INTO `klienci` (`NrKlienta`, `Email`, `Imie`, `Nazwisko`, `Pesel`, `Telefon`, `Login`, `Haslo`, `TypUzytkownika`, `CzyAktywny`) VALUES
+(1, 'a@a', 'a', 'a', '11111111111', 'a', 'a@a', 'a', 0, 0),
+(2, 'admin@admin', 'admin', 'admin', '22222222222', 'admin', 'admin@admin', 'admin@admin', 1, 0);
+
+--
 -- Wyzwalacze `klienci`
 --
 DELIMITER $$
@@ -127,7 +142,7 @@ DELIMITER ;
 --
 
 CREATE TABLE `konto` (
-  `NrKonta` varchar(26) NOT NULL,
+  `NrKonta` decimal(26,0) NOT NULL,
   `NrKlienta` mediumint(9) NOT NULL,
   `NrRachunku` mediumint(9) NOT NULL,
   `Depozyt` decimal(10,2) NOT NULL,
@@ -137,6 +152,17 @@ CREATE TABLE `konto` (
   `TypKonta` varchar(45) NOT NULL,
   `NazwaKonta` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Zrzut danych tabeli `konto`
+--
+
+INSERT INTO `konto` (`NrKonta`, `NrKlienta`, `NrRachunku`, `Depozyt`, `Wyplata`, `AktualnyBilans`, `DostępnyBilans`, `TypKonta`, `NazwaKonta`) VALUES
+('11223401111111111156780000', 1, 0, '0.00', '0.00', '130.00', '0.00', 'osobiste', 'moje'),
+('11223401111111111156781000', 1, 0, '0.00', '0.00', '230.00', '0.00', 'osobiste', 'moje1'),
+('11223401111111111156782000', 1, 0, '0.00', '0.00', '130.00', '0.00', 'osobiste', 'moje3'),
+('11223401111111111156783000', 1, 0, '0.00', '0.00', '0.00', '0.00', 'osobiste', 'sdsssss'),
+('11223401111111111156784000', 1, 0, '0.00', '0.00', '0.00', '0.00', 'osobiste', 's3');
 
 -- --------------------------------------------------------
 
@@ -224,6 +250,13 @@ CREATE TABLE `odbiorcy` (
   `Imie` varchar(45) NOT NULL,
   `Nazwisko` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Zrzut danych tabeli `odbiorcy`
+--
+
+INSERT INTO `odbiorcy` (`IdOdbiorcy`, `KontoOdbiorcy`, `NazwaSkrocona`, `Imie`, `Nazwisko`) VALUES
+(0, '11111111111111111111111111', 'a', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -392,34 +425,6 @@ ALTER TABLE `lokaty`
   ADD KEY `NrKonta` (`NrKonta`);
 
 --
--- Indeksy dla tabeli `odbiorcy`
---
-ALTER TABLE `odbiorcy`
-  ADD PRIMARY KEY (`IdOdbiorcy`),
-
---
--- Indeksy dla tabeli `pelnomocnictwo`
---
-ALTER TABLE `pelnomocnictwo`
-  ADD PRIMARY KEY (`IdPelnomocnictwa`),
-  ADD KEY `IdSprawy` (`IdSprawy`);
-
---
--- Indeksy dla tabeli `przelewy`
---
-ALTER TABLE `przelewy`
-  ADD PRIMARY KEY (`IdPrzelewu`) KEY_BLOCK_SIZE=9,
-  ADD KEY `NrRachunku` (`NrRachunku`),
-  ADD KEY `ZNrKlienta` (`ZNrKlienta`),
-
---
--- Indeksy dla tabeli `rachunki`
---
-ALTER TABLE `rachunki`
-  ADD PRIMARY KEY (`NrRachunku`),
-  ADD KEY `NrKonta` (`NrKonta`);
-
---
 -- Indeksy dla tabeli `sprawy`
 --
 ALTER TABLE `sprawy`
@@ -459,7 +464,7 @@ ALTER TABLE `alerty`
 -- AUTO_INCREMENT dla tabeli `klienci`
 --
 ALTER TABLE `klienci`
-  MODIFY `NrKlienta` mediumint(9) NOT NULL AUTO_INCREMENT;
+  MODIFY `NrKlienta` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT dla tabeli `konto_osobiste`
@@ -478,143 +483,6 @@ ALTER TABLE `konto_oszczednosciowe`
 --
 ALTER TABLE `lokaty`
   MODIFY `IdLokaty` mediumint(9) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT dla tabeli `odbiorcy`
---
-ALTER TABLE `odbiorcy`
-  MODIFY `IdOdbiorcy` mediumint(9) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT dla tabeli `pelnomocnictwo`
---
-ALTER TABLE `pelnomocnictwo`
-  MODIFY `IdPelnomocnictwa` mediumint(9) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT dla tabeli `przelewy`
---
-ALTER TABLE `przelewy`
-  MODIFY `IdPrzelewu` mediumint(9) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT dla tabeli `rachunki`
---
-ALTER TABLE `rachunki`
-  MODIFY `NrRachunku` mediumint(9) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT dla tabeli `sprawy`
---
-ALTER TABLE `sprawy`
-  MODIFY `IdSprawy` mediumint(9) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT dla tabeli `zaswiadczenia`
---
-ALTER TABLE `zaswiadczenia`
-  MODIFY `IdZaswiadczenia` mediumint(9) NOT NULL AUTO_INCREMENT;
-
---
--- Ograniczenia dla zrzutów tabel
---
-
---
--- Ograniczenia dla tabeli `administratorzy`
---
-ALTER TABLE `administratorzy`
-  ADD CONSTRAINT `administratorzy_ibfk_1` FOREIGN KEY (`NrKlienta`) REFERENCES `klienci` (`NrKlienta`);
-
---
--- Ograniczenia dla tabeli `adresy`
---
-ALTER TABLE `adresy`
-  ADD CONSTRAINT `adresy_ibfk_1` FOREIGN KEY (`NrKlienta`) REFERENCES `klienci` (`NrKlienta`);
-
---
--- Ograniczenia dla tabeli `alerty`
---
-ALTER TABLE `alerty`
-  ADD CONSTRAINT `alerty_ibfk_1` FOREIGN KEY (`NrKonta`) REFERENCES `konto` (`NrKonta`);
-
---
--- Ograniczenia dla tabeli `karty`
---
-ALTER TABLE `karty`
-  ADD CONSTRAINT `karty_ibfk_1` FOREIGN KEY (`NrKonta`) REFERENCES `konto` (`NrKonta`);
-
---
--- Ograniczenia dla tabeli `konto`
---
-ALTER TABLE `konto`
-  ADD CONSTRAINT `konto_ibfk_1` FOREIGN KEY (`NrKlienta`) REFERENCES `klienci` (`NrKlienta`);
-
---
--- Ograniczenia dla tabeli `konto_osobiste`
---
-ALTER TABLE `konto_osobiste`
-  ADD CONSTRAINT `konto_osobiste_ibfk_1` FOREIGN KEY (`NrKonta`) REFERENCES `konto` (`NrKonta`);
-
---
--- Ograniczenia dla tabeli `konto_oszczednosciowe`
---
-ALTER TABLE `konto_oszczednosciowe`
-  ADD CONSTRAINT `konto_oszczednosciowe_ibfk_1` FOREIGN KEY (`NrKonta`) REFERENCES `konto` (`NrKonta`);
-
---
--- Ograniczenia dla tabeli `kontrola`
---
-ALTER TABLE `kontrola`
-  ADD CONSTRAINT `kontrola_ibfk_1` FOREIGN KEY (`NrKlienta`) REFERENCES `klienci` (`NrKlienta`),
-  ADD CONSTRAINT `kontrola_ibfk_2` FOREIGN KEY (`NrKonta`) REFERENCES `konto` (`NrKonta`);
-
---
--- Ograniczenia dla tabeli `linia_kredytowa`
---
-ALTER TABLE `linia_kredytowa`
-  ADD CONSTRAINT `linia_kredytowa_ibfk_1` FOREIGN KEY (`NrKonta`) REFERENCES `konto` (`NrKonta`);
-
---
--- Ograniczenia dla tabeli `lokaty`
---
-ALTER TABLE `lokaty`
-  ADD CONSTRAINT `lokaty_ibfk_1` FOREIGN KEY (`NrKonta`) REFERENCES `konto` (`NrKonta`);
-
---
--- Ograniczenia dla tabeli `pelnomocnictwo`
---
-ALTER TABLE `pelnomocnictwo`
-  ADD CONSTRAINT `pelnomocnictwo_ibfk_1` FOREIGN KEY (`IdSprawy`) REFERENCES `sprawy` (`IdSprawy`);
-
---
--- Ograniczenia dla tabeli `przelewy`
---
-ALTER TABLE `przelewy`
-  ADD CONSTRAINT `przelewy_ibfk_1` FOREIGN KEY (`ZNrKlienta`) REFERENCES `klienci` (`NrKlienta`),
-
---
--- Ograniczenia dla tabeli `rachunki`
---
-ALTER TABLE `rachunki`
-  ADD CONSTRAINT `rachunki_ibfk_1` FOREIGN KEY (`NrKonta`) REFERENCES `konto` (`NrKonta`);
-
---
--- Ograniczenia dla tabeli `sprawy`
---
-ALTER TABLE `sprawy`
-  ADD CONSTRAINT `sprawy_ibfk_1` FOREIGN KEY (`NrKlienta`) REFERENCES `klienci` (`NrKlienta`);
-
---
--- Ograniczenia dla tabeli `wspolny_login`
---
-ALTER TABLE `wspolny_login`
-  ADD CONSTRAINT `wspolny_login_ibfk_1` FOREIGN KEY (`IdSprawy`) REFERENCES `sprawy` (`IdSprawy`);
-
---
--- Ograniczenia dla tabeli `zaswiadczenia`
---
-ALTER TABLE `zaswiadczenia`
-  ADD CONSTRAINT `zaswiadczenia_ibfk_1` FOREIGN KEY (`IdSprawy`) REFERENCES `sprawy` (`IdSprawy`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
